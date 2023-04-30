@@ -1,4 +1,7 @@
 # 我的餐廳清單
+![1](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/1.png)
+![2](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/2.png)
+
 
 ## 介紹
 這是一個可以搜尋、瀏覽餐廳資料以及連結地圖位置的餐廳清單網站
