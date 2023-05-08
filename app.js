@@ -1,13 +1,16 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const exphbs = require('express-handlebars')
+const bodyParser = require('body-parser')
 
 // 僅在非正式環境時，使用dotenv
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
-
+const Restaurant = require('./models/Restaurant')
 const app = express()
 const port = 3000
+
 mongoose.connect(process.env.MONGODB_URI) // 設定連線到 mongoDB
 
 const db = mongoose.connection
@@ -20,24 +23,22 @@ db.once('open', () => {
   console.log('mongoose connected!')
 })
 
-// require handlebars in the project
-const exphbs = require('express-handlebars')
-// const restaurantList = require('./restaurant.json')
-const Restaurant = require('./models/Restaurant')
-
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
-// setting static files
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
-// routes setting
+
 app.get('/', (req, res) => {
-  // res.render('index', ({ restaurants: restaurantList.results }))
   Restaurant.find()
     .lean()
     .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.log(error))
+})
+
+app.get('/restaurants/new', (req, res) => {
+  return res.render('new')
 })
 
 app.get('/restaurants/:restaurant_id', (req, res) => {
@@ -55,6 +56,12 @@ app.get('/search', (req, res) => {
   } else { 
     res.render('index', ({ restaurants: restaurants, keyword: req.query.keyword })) 
   }
+})
+
+app.post('/restaurants', (req, res) => {
+  return Restaurant.create(req.body)
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 
 // start and listen on the Express server
