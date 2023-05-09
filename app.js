@@ -29,7 +29,7 @@ app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
-
+// 餐廳列表
 app.get('/', (req, res) => {
   Restaurant.find()
     .lean()
@@ -37,6 +37,7 @@ app.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// 創建餐廳資料頁面
 app.get('/restaurants/new', (req, res) => {
   return res.render('new')
 })
@@ -50,37 +51,53 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// 編輯餐廳頁面
 app.get('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .lean()
-    .then((restaurant) => res.render('edit', { restaurant }))
+    .then(restaurant => res.render('edit', { restaurant }))
     .catch(error => console.log(error))
 
 })
 
 app.get('/search', (req, res) => {
-  const restaurants = restaurantList.results.filter(restaurant => {
-    return restaurant.name.toLowerCase().includes(req.query.keyword.toLowerCase().trim()) || restaurant.category.toLowerCase().includes(req.query.keyword.toLowerCase().trim())
-  })
-  
-  if (restaurants.length === 0) {
-    res.render('error')
-  } else { 
-    res.render('index', ({ restaurants: restaurants, keyword: req.query.keyword })) 
-  }
+  const keywords = req.query.keyword
+  const keyword = keywords.toLowerCase().trim()
+  Restaurant.find()
+    .lean()
+    .then(restaurants => {
+      const filterRestaurants = restaurants.filter(data => {
+        return data.name.toLowerCase().includes(keyword) || data.category.toLowerCase().includes(keyword)
+      })
+      
+      if (filterRestaurants.length === 0) {
+        res.render('error')
+      } else { res.render('index', { restaurants: filterRestaurants, keywords }) }
+    })
+    .catch(error => console.log(error))
 })
 
+// 新增餐廳
 app.post('/restaurants', (req, res) => {
   return Restaurant.create(req.body)
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
+// 更新餐廳資料
 app.post('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant.findByIdAndUpdate(id, req.body)
     .then(() => res.redirect(`/restaurants/${id}`))
+    .catch(error => console.log(error))
+})
+
+// 刪除指定餐廳
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findByIdAndDelete(id)
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 

@@ -45,6 +45,10 @@
               <a href="./restaurants/{{ this._id}}" class="btn btn-primary btn-sm mx-2" role="button">detail</a>
 
               <a href="./restaurants/{{ this._id}}/edit" class="btn btn-primary btn-sm mx-1" role="button">edit</a>
+
+              <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
+                <button type="submit" class="btn btn-primary btn-sm mx-1">delete</button>
+              </form>
             </div>
           </div>
         {{!-- </a> --}}

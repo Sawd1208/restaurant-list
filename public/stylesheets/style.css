@@ -50,14 +50,11 @@ header {
   border-color: #ced4da;
 }
 
-#cardBox {
-  justify-content: space-between;
-}
-
 .card {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   padding: 0;
   width: 32%;
+  margin: 0 5px;
 }
 
 .card img {
