@@ -23,10 +23,10 @@
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-10 col-12 mx-auto">
-      <div class="row row-cols-sm-3">
+    <div class="col-lg-10 col-12 mx-auto">
+      <div class="row row-cols-md-3" id="cardBox">
         {{#each restaurants}}
-        <a href="/restaurants/{{this._id}}" class="text-secondary">
+        {{!-- <a href="#" class="text-secondary"> --}}
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}"
               alt="{{this.name}}">
@@ -42,12 +42,12 @@
                 <i class="fas fa-star fa-xs"></i>
               </span>
               
-              <form action="./restaurants/{{ this._id }}">
-                <button type="button" class="btn btn-primary mt-2">detail</button>
-              </form>
+              <a href="./restaurants/{{ this._id}}" class="btn btn-primary btn-sm mx-2" role="button">detail</a>
+
+              <a href="./restaurants/{{ this._id}}/edit" class="btn btn-primary btn-sm mx-1" role="button">edit</a>
             </div>
           </div>
-        </a>
+        {{!-- </a> --}}
         {{/each}}
       </div>
     </div>

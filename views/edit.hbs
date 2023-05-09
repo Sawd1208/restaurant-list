@@ -1,0 +1,44 @@
+<h1 class="text-center mt-3">修改餐廳資料</h1>
+<div class="container" id="edit">
+  <form action="/restaurants/{{ restaurant._id }}/edit" method="POST">
+    <div class="mb-3">
+      <label for="InputName" class="form-label">name:</label>
+      <input type="text" class="form-control" placeholder="name" name="name" value="{{ restaurant.name }}">
+    </div>
+    <div class="mb-3">
+      <label for="InputName_en" class="form-label">name_en:</label>
+      <input type="text" class="form-control" placeholder="name_en" name="name_en" value="{{ restaurant.name_en }}">
+    </div>
+    <div class="mb-3">
+      <label for="InputCategory" class="form-label">category:</label>
+      <input type="text" class="form-control" placeholder="category" name="category" value="{{ restaurant.category }}">
+    </div>
+    <div class="mb-3">
+      <label for="InputImage" class="form-label">image:</label>
+      <input type="text" class="form-control" placeholder="image" name="image" value="{{ restaurant.image }}">
+    </div>
+    <div class="mb-3">
+      <label for="InputLocation" class="form-label">location:</label>
+      <input type="text" class="form-control" placeholder="location" name="location" value="{{ restaurant.location }}">
+    </div>
+    <div class="mb-3">
+      <label for="InputPhone" class="form-label">phone:</label>
+      <input type="text" class="form-control" placeholder="phone" name="phone" value="{{ restaurant.phone }}">
+    </div>
+    <div class="mb-3">
+      <label for="InputGoogle_map" class="form-label">google_map:</label>
+      <input type="text" class="form-control" placeholder="google_map" name="google_map" value="{{ restaurant.google_map }}">
+    </div>
+    <div class="mb-3">
+      <label for="InputRating" class="form-label">rating:</label>
+      <input type="number" class="form-control" placeholder="rating" name="rating" value="{{ restaurant.rating }}">
+    </div>
+    <div class="mb-3">
+      <label for="InputDescription" class="form-label">description:</label>
+      <input type="text" class="form-control" placeholder="description" name="description" value="{{ restaurant.description }}">
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg mb-2">Save</button>
+    <a href="/" class="btn btn-primary btn-lg mb-2" role="button">back</a>
+  </form>
+</div>
