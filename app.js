@@ -11,7 +11,7 @@ const Restaurant = require('./models/Restaurant')
 const app = express()
 const port = 3000
 
-mongoose.connect(process.env.MONGODB_URI) // 設定連線到 mongoDB
+mongoose.connect(process.env.MONGODB_URI) 
 
 const db = mongoose.connection
 
@@ -74,7 +74,7 @@ app.get('/search', (req, res) => {
       
       if (filterRestaurants.length === 0) {
         res.render('error')
-      } else { res.render('index', { restaurants: filterRestaurants, keywords }) }
+      } else { res.render('index', { restaurants: filterRestaurants, keyword }) }
     })
     .catch(error => console.log(error))
 })
