@@ -1,16 +1,17 @@
 # 我的餐廳清單
-![1](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/1.png)
-![2](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/2.png)
+![1](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/1restaurant-list_1.png)
+![2](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/restaurant-list_2.png)
 
 
 ## 介紹
-這是一個可以搜尋、瀏覽餐廳資料以及連結地圖位置的餐廳清單網站
+這是一個可以搜尋、瀏覽、新增、編輯餐廳資料以及連結地圖位置的餐廳清單網站
 
 ## 特點
 - 查看所有的餐廳
 - 使用關鍵字查找餐廳名稱及類別
 - 瀏覽更詳細的餐廳資料
 - 連結餐廳位置地圖
+- 可以新增餐廳、編輯餐廳和刪除餐廳
 
 ## 使用
 1. 先確認是否有安裝 npm和 Node.js
@@ -38,3 +39,6 @@ ctrl + c
 - Express-handlebars 5.3.5
 - Bootstrap 5.1.3
 - Font-awesome 5.8.1
+- body-parser 1.20.2
+- dotenv 16.0.3
+- mongoose 7.1.0
