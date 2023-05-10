@@ -61,6 +61,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 
 })
 
+// 搜尋餐廳
 app.get('/search', (req, res) => {
   const keywords = req.query.keyword
   const keyword = keywords.toLowerCase().trim()

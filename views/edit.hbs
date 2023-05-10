@@ -3,7 +3,7 @@
   <form action="/restaurants/{{ restaurant._id }}/edit" method="POST">
     <div class="mb-3">
       <label for="InputName" class="form-label">name:</label>
-      <input type="text" class="form-control" placeholder="name" name="name" value="{{ restaurant.name }}">
+      <input type="text" class="form-control" placeholder="name" name="name" required="true" value="{{ restaurant.name }}">
     </div>
     <div class="mb-3">
       <label for="InputName_en" class="form-label">name_en:</label>
@@ -11,23 +11,23 @@
     </div>
     <div class="mb-3">
       <label for="InputCategory" class="form-label">category:</label>
-      <input type="text" class="form-control" placeholder="category" name="category" value="{{ restaurant.category }}">
+      <input type="text" class="form-control" placeholder="category" name="category" required="true" value="{{ restaurant.category }}">
     </div>
     <div class="mb-3">
       <label for="InputImage" class="form-label">image:</label>
-      <input type="text" class="form-control" placeholder="image" name="image" value="{{ restaurant.image }}">
+      <input type="text" class="form-control" placeholder="image" name="image" required="true" value="{{ restaurant.image }}">
     </div>
     <div class="mb-3">
       <label for="InputLocation" class="form-label">location:</label>
-      <input type="text" class="form-control" placeholder="location" name="location" value="{{ restaurant.location }}">
+      <input type="text" class="form-control" placeholder="location" name="location" required="true" value="{{ restaurant.location }}">
     </div>
     <div class="mb-3">
       <label for="InputPhone" class="form-label">phone:</label>
-      <input type="text" class="form-control" placeholder="phone" name="phone" value="{{ restaurant.phone }}">
+      <input type="text" class="form-control" placeholder="phone" name="phone" required="true" value="{{ restaurant.phone }}">
     </div>
     <div class="mb-3">
       <label for="InputGoogle_map" class="form-label">google_map:</label>
-      <input type="text" class="form-control" placeholder="google_map" name="google_map" value="{{ restaurant.google_map }}">
+      <input type="text" class="form-control" placeholder="google_map" name="google_map" required="true" value="{{ restaurant.google_map }}">
     </div>
     <div class="mb-3">
       <label for="InputRating" class="form-label">rating:</label>
@@ -35,7 +35,7 @@
     </div>
     <div class="mb-3">
       <label for="InputDescription" class="form-label">description:</label>
-      <input type="text" class="form-control" placeholder="description" name="description" value="{{ restaurant.description }}">
+      <input type="text" class="form-control" placeholder="description" name="description" required="true" value="{{ restaurant.description }}">
     </div>
 
     <button type="submit" class="btn btn-primary btn-lg mb-2">Save</button>
