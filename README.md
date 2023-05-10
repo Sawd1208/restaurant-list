@@ -1,5 +1,5 @@
 # 我的餐廳清單
-![1](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/1restaurant-list_1.png)
+![1](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/restaurant-list_1.png)
 ![2](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/restaurant-list_2.png)
 
 
