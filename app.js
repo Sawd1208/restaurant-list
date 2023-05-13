@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 // 僅在非正式環境時，使用dotenv
 if (process.env.NODE_ENV !== 'production') {
@@ -28,6 +29,7 @@ app.set('view engine', 'hbs')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
+app.use(methodOverride('_method'))
 
 // 餐廳列表
 app.get('/', (req, res) => {
@@ -87,7 +89,7 @@ app.post('/restaurants', (req, res) => {
 })
 
 // 更新餐廳資料
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findByIdAndUpdate(id, req.body)
     .then(() => res.redirect(`/restaurants/${id}`))
@@ -95,7 +97,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 // 刪除指定餐廳
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findByIdAndDelete(id)
     .then(() => res.redirect('/'))

@@ -1,6 +1,6 @@
 <h1 class="text-center mt-3">修改餐廳資料</h1>
 <div class="container" id="edit">
-  <form action="/restaurants/{{ restaurant._id }}/edit" method="POST">
+  <form action="/restaurants/{{ restaurant._id }}?_method=PUT" method="POST">
     <div class="mb-3">
       <label for="InputName" class="form-label">name:</label>
       <input type="text" class="form-control" placeholder="name" name="name" required="true" value="{{ restaurant.name }}">
