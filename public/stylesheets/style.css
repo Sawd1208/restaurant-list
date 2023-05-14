@@ -20,16 +20,19 @@ header {
   filter: blur(3px);
 }
 
-.search-bar {
-  display: flex;
-    justify-content: center;
-}
-
-.search-bar .search-bar-inner {
+.searchForm {
   display: flex;
   justify-content: space-between;
+  width: 800px;
   margin-top: 30px;
-  width: 900px
+}
+
+.input-group {
+  width: 200px;
+}
+
+.form-select {
+  width: 200px;
 }
 
 .form-control::placeholder {

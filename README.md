@@ -1,6 +1,6 @@
 # 我的餐廳清單
-![1](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/restaurant-list_1.png)
-![2](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/restaurant-list_2.png)
+![1](https://raw.githubusercontent.com/Sawd1208/restaurant-list/main/public/image/3.png)
+
 
 
 ## 介紹
@@ -9,6 +9,7 @@
 ## 特點
 - 查看所有的餐廳
 - 使用關鍵字查找餐廳名稱及類別
+- 自定義排序餐廳
 - 瀏覽更詳細的餐廳資料
 - 連結餐廳位置地圖
 - 可以新增餐廳、編輯餐廳和刪除餐廳
@@ -42,3 +43,4 @@ ctrl + c
 - body-parser 1.20.2
 - dotenv 16.0.3
 - mongoose 7.1.0
+- method-override 3.0.0
