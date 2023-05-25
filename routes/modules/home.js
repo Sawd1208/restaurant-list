@@ -23,8 +23,9 @@ router.get('/search', (req, res) => {
       })
 
       if (filterRestaurants.length === 0) {
-        res.render('error')
-      } else { res.render('index', { restaurants: filterRestaurants, keyword }) }
+        res.render('error', { keyword })
+      } else { res.render('index', { restaurants: filterRestaurants, keyword, sort }) 
+      }
     })
     .catch(error => console.log(error))
 })

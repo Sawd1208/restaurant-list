@@ -1,29 +1,26 @@
 <!-- search bar -->
 <div class="container search-bar">
-  {{!-- <div class="search-bar-outer"> --}}
-    <div class="search-bar-inner d-flex justify-content-center">
-      <form action="/search" class="searchForm">
-        {{!-- <h4 class="mb-2">尋找餐廳：</h4> --}}
-        <div class="input-group">
-          <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
+  <div class="search-bar-inner d-flex justify-content-center">
+    <form action="/search" class="searchForm">
+      <div class="input-group">
+        <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
             value="{{keyword}}" aria-describedby="search-button">
-          <div class="input-group-append">
+        <div class="input-group-append">
             <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i>
             </button>
-          </div>
         </div>
-        <select class="form-select" name="sort" onchange="this.form.submit()">
+      </div>
+      <select class="form-select" name="sort" onchange="this.form.submit()">
           <option value="#">選擇排列</option>
-          <option value="-_id">最新</option>
-          <option value="_id">最舊</option>
-          <option value="category">類別</option>
-          <option value="location">地區</option>
-          <option value="name_en">名稱Ａ-Z</option>
-          <option value="-name_en">名稱Z-A</option>
-        </select>
-      </form>
-    </div>
-  {{!-- </div> --}}
+          <option value="-_id" {{#is sort "-_id"}}selected{{/is}}>最新</option>
+          <option value="_id" {{#is sort "_id"}}selected{{/is}}>最舊</option>
+          <option value="category" {{#is sort "category"}}selected{{/is}}>類別</option>
+          <option value="location" {{#is sort "location"}}selected{{/is}}>地區</option>
+          <option value="name_en"  {{#is sort "name_en"}}selected{{/is}}>名稱Ａ-Z</option>
+          <option value="-name_en" {{#is sort "-name_en"}}selected{{/is}}>名稱Z-A</option>
+      </select>
+    </form>
+  </div>
 </div>
 
 <!-- restaurant list -->
