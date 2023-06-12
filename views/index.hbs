@@ -29,7 +29,7 @@
     <div class="col-lg-10 col-12 mx-auto">
       <div class="row  row-cols-md-3" id="cardBox">
         {{#each restaurants}}
-          <div class="card mb-3">
+          <div class="card mb-3" id="restaurantBody">
             <a href="/restaurants/{{this._id}}/">
               <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
             </a>
