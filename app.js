@@ -6,6 +6,7 @@ const methodOverride = require('method-override')
 const helpers = require('handlebars-helpers')()
 
 const routes = require('./routes')
+const usePassport = require('./config/passport')
 require('./config/mongoose')
 
 const app = express()
@@ -19,6 +20,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
+
+usePassport(app)
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
