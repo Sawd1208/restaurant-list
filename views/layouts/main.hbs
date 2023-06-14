@@ -17,11 +17,19 @@
       <a class="navbar-brand" href="/">
         <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png" width="30"
           height="30" class="d-inline-block align-top" alt="我的餐廳清單">
-        我的餐廳清單
+        {{#if isAuthenticated}}{{ user.name }}的 {{/if}}餐廳清單
       </a>
-      <form action="/restaurants/new" method="GET" id="indexCreate">
-        <button type="submit" class="btn btn-primary btn-lg my-2">Create</button>
-      </form>
+      <div class="d-flex">
+        {{#if isAuthenticated}}
+        <form action="/restaurants/new" method="GET" id="indexCreate">
+          <button type="submit" class="btn btn-outline-primary btn-lg me-2">Create</button>
+        </form>
+        <a href="/users/logout" class="btn btn-outline-primary btn-lg">Logout</a>
+        {{else}}
+        <a href="/users/login" class="btn btn-outline-primary btn-lg">Login</a>
+        {{/if}}
+        
+      </div>
     </div>
   </nav>
   
