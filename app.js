@@ -7,7 +7,7 @@ const helpers = require('handlebars-helpers')()
 const flash = require('connect-flash')
 
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config
+  require('dotenv').config()
 }
 
 const routes = require('./routes')
