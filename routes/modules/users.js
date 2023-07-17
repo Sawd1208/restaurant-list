@@ -12,7 +12,7 @@ router.post('/login', passport.authenticate('local', {
   // 加入 middleware，驗證 request 登入狀態
   successRedirect: '/',
   failureRedirect: '/users/login',
-  failureFlash: true,
+  failureFlash: true
 }))
   
 router.get('/register', (req, res) => {

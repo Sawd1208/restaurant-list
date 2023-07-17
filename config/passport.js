@@ -15,7 +15,6 @@ module.exports = app => {
     User.findOne({ email })
       .then(user => {
         if (!user) {
-          // return done(null, false, { message: 'That email is not registered!' })
           return done(null, false, req.flash('warning_msg', 'That email is not registered!'))
         }
         return bcrypt.compare(password, user.password) // 第一個參數是使用者的輸入值，第二個參數是資料庫裡的雜湊值。bcrypt 比對後，會回傳布林值。。
@@ -25,11 +24,6 @@ module.exports = app => {
             }
             return done(null, user)
           })
-        // if (user.password !== password) {
-        //   // return done(null, false, { message: 'Email or Password incorrect.' })
-        //   return done(null, false, req.flash('warning_msg', 'Email or Password incorrect.' ))
-        // }
-        // return done (null, user)
       })
       .catch(err => done(err, false))
   }))
